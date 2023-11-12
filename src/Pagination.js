@@ -25,10 +25,15 @@ function Api() {
         <div className="App">
             <h1>Todo List</h1>
             <ul>
-                {info.map(todo => (
-                    <li key={todo.id}>{todo.title}</li>
-                ))}
+                {Array.isArray(info) && info.length > 0 ? (
+                    info.map(todo => (
+                        <li key={todo.id}>{todo.title}</li>
+                    ))
+                ) : (
+                    <p>No todos found.</p>
+                )}
             </ul>
+
             <button onClick={handlePreviousPage}>Précédent</button>
             <button onClick={handleNextPage}>Suivant</button>
         </div>
